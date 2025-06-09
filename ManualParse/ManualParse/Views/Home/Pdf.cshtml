@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Manual Parsing";
+}
+
+<div class="text-center">
+    <h1 class="display-4">PDF</h1>
+</div>
+
+@using (Html.BeginForm("UploadPdf", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input class="form-control" type="file" name="file" accept=".pdf" />
+    <button type="submit" class="btn btn-primary mt-2">Parse PDF File</button>
+}
+
+
+@if (!string.IsNullOrEmpty(ViewBag.ExtractedText))
+{
+    <hr />
+    <pre style="white-space: pre-wrap;">@ViewBag.ExtractedText</pre>
+}
